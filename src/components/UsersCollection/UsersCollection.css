@@ -1,0 +1,23 @@
+.collection {
+    border: 2px solid tomato;
+    margin: 0 auto;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.collection-info {
+    display: flex;
+}
+
+img {
+    width: 120px;
+    height: 120px;
+    border-radius: 20%;
+  }
+
+.image-container {
+    border: 2px solid tomato;
+    padding: 1rem;
+}
