@@ -1,26 +1,37 @@
 import React, { useState } from "react";
 
 
-const AuthButton = ({ accounts, setAccounts }) => {
+const AuthButton = ({ defaultAccount, setDefaultAccount, errorMessage, setErrorMessage }) => {
+  const [connButtonText, setConnButtonText] = useState('Connect Wallet');
 
-  const isConnected = Boolean(accounts[0]);
-
-  async function connectAccount() {
+  const connectWalletHandler = () => {
     if(window.ethereum) {
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts",
+      window.ethereum.request({method: 'eth_requestAccounts'})
+      .then(result => {
+        accountChangedHandler(result[0]);
+        setConnButtonText('Wallet Connected');
       });
-      setAccounts(accounts);
+    } else {
+      setErrorMessage('You need to install Metamask');
+      window.alert(errorMessage);
     }
   }
 
+  const accountChangedHandler = (newAccount) => {
+    setDefaultAccount(newAccount);
+  }
+
+  window.ethereum.on("accountsChanged", async (accounts) => {
+    setDefaultAccount(accounts[0]);
+  });
+  
+
     return (
       <>
-      {isConnected ? (
-        <p>{accounts}</p>
-      ) : (
-        <button onClick={connectAccount}>Connect</button>
-      )}
+          <button onClick={connectWalletHandler}>{connButtonText}</button>
+          <br/>
+          <h5>Address connected: {defaultAccount} </h5>
+        
       </>
     );
 

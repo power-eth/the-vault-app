@@ -3,14 +3,10 @@ import AuthButton from "../AuthButton/AuthButton";
 
 
 
-function Navbar({ accounts, setAccounts}) {
+function Navbar({ defaultAccount, setDefaultAccount, errorMessage, setErrorMessage }) {
     return ( 
         <>
             <h3>THE VAULT - NAVBAR</h3>
-            <AuthButton
-            accounts = {accounts}
-            setAccounts = {setAccounts}
-            />
             <br/>
             {/* Left Side - Social Media Icons */}
             <div>
@@ -20,6 +16,12 @@ function Navbar({ accounts, setAccounts}) {
             {/* Right Side - Sections and Connect */}
 
             {/* Connect */}
+            <AuthButton
+                defaultAccount = {defaultAccount}
+                setDefaultAccount = {setDefaultAccount}
+                errorMessage = {errorMessage}
+                setErrorMessage = {setErrorMessage}
+            />
            
         </>
      
