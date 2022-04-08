@@ -23,8 +23,7 @@ function Navbar({ defaultAccount, setDefaultAccount, errorMessage, setErrorMessa
                 setErrorMessage = {setErrorMessage}
                 isLoggedIn = {isLoggedIn}
                 setIsLoggedIn = {setIsLoggedIn}
-            />
-           
+            />      
         </>
      
      );

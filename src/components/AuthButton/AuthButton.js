@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 const AuthButton = ({ defaultAccount, setDefaultAccount, errorMessage, setErrorMessage, isLoggedIn, setIsLoggedIn }) => {
   const [connButtonText, setConnButtonText] = useState('Connect Wallet');
 
@@ -26,7 +25,7 @@ const AuthButton = ({ defaultAccount, setDefaultAccount, errorMessage, setErrorM
           } else {
             (isLoggedIn == true && defaultAccount == null) ? disconnectWallet(): window.alert('Please disconnect through Metamask first.');
           }
-    } else {
+    } else { //Else user alerted to install Metamask
       setErrorMessage('You need to install Metamask');
       window.alert(errorMessage);
     }

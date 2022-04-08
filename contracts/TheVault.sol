@@ -86,7 +86,5 @@ contract TheVault {
         removeAssetFromArray(rand);
         return randomNft.tokenId;
     }
-    // Process:
-    // Chainlink VRF runs random # func and stores in variable randNumb
-    // to support receiving ETH by default
+   
 }
