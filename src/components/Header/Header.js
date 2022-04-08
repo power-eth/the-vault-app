@@ -13,12 +13,10 @@ const abi = [
     "function getArrayElements() public view returns(Nft[] memory)"
 ];
 
-function Header({ accounts, setAccounts }) {
+function Header({}) {
     const [nftContractAddress, setNftContractAddress] = useState('');
     const [nftTokenId, setNftTokenId] = useState(0);
     const [randomNft, setRandomNft] = useState('');
-    
-    const isConnected = Boolean(accounts[0]);
 
     async function requestAccount() {
         await window.ethereum.request({ method: 'eth_requestAccounts' });

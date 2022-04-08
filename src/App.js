@@ -8,26 +8,29 @@ import './App.css';
 
 
 function App() {
-  const [accounts, setAccounts] = useState([]);
+  //const [accounts, setAccounts] = useState([]);
   // Wallet Connection Vars
   const [errorMessage, setErrorMessage] = useState(null);
   const [defaultAccount, setDefaultAccount] = useState(null);
-  const [connButtonText, setConnButtonText] = useState('Connect Wallet');
-  const [currentContractVal, setCurrentContractVal] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <div className="container">
       <Navbar
-      accounts = {accounts}
-      setAccounts = {setAccounts}
+        defaultAccount = {defaultAccount}
+        setDefaultAccount = {setDefaultAccount}
+        errorMessage = {errorMessage}
+        setErrorMessage = {setErrorMessage}
+        isLoggedIn = {isLoggedIn}
+        setIsLoggedIn = {setIsLoggedIn}
       />
       <Header 
-      accounts = {accounts}
-      setAccounts = {setAccounts}
+        defaultAccount = {defaultAccount}
+        setDefaultAccount = {setDefaultAccount}
       />
-      <UsersCollection
-      accounts = {accounts}
-      />
+      {/* <UsersCollection
+        defaultAccount = {defaultAccount}
+      /> */}
       <About/> 
       <Footer/>
     </div>

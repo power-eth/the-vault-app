@@ -11,7 +11,8 @@ function UsersCollectionInfo() {
 
     async function displayUserNfts() {
        // ERC 721 NFT Contract Instance //
-       const contractNft = new ethers.Contract(nftContractAddress, nftContract.abi, signer);
+       const provider = new ethers.providers.Web3Provider(window.ethereum);
+       const contractNft = new ethers.Contract(nftContract, nftContract.abi, provider);
        const userNftBalance = await contractNft.getBalanceOf(0x33fF13AC66Cf7A09B51B7F8ab8e5cCE66fdbe49A);
        console.log('user nfts: ', userNftBalance);
 
